@@ -38,7 +38,8 @@ function App() {
     const newCats: string[] = [];
     // const res_json = await fetch("http://127.0.0.1:5000/images/json/10").then(
     const res_json = await fetch(
-      "http://192.168.0.102:5000/images/json/10"
+      // "http://192.168.0.102:5000/images/json/10"
+      "http://localhost:5000/images/json/10"
     ).then((res) => res.json());
     // console.log(res_json);
     setCats((prevCats) => [...prevCats, ...res_json.urls]);
@@ -74,15 +75,20 @@ function App() {
 
   return (
     <>
-      <h1>Cat</h1>
-      <a href="/upload">Uplaod</a>
-      <div>
-        {cats.map((url, index) => (
-          <CatImage key={index} url={url} id={index} />
-        ))}
+      <div className="gallery-container">
+        <h1>Cat</h1>
+        {/* <a href="/upload">Uplaod</a> */}
+        <div className="gallery">
+          {cats.map((url, index) => (
+            <CatImage key={index} url={url} id={index} />
+          ))}
+        </div>
+        <div
+          ref={loaderRef}
+          style={{ height: 20, background: "transparent" }}
+        />{" "}
+        {/* Loader */}
       </div>
-      <div ref={loaderRef} style={{ height: 20, background: "transparent" }} />{" "}
-      {/* Loader */}
     </>
   );
 }

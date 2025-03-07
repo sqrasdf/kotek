@@ -44,8 +44,8 @@ def get_json_1():
 def get_json_n(number):
     d = {"urls": []}
     for i in range(int(number)):
-        # d["urls"].append("http://127.0.0.1:5000/images/" + random.choice(os.listdir("images")))
-        d["urls"].append("http://192.168.0.102:5000/images/" + random.choice(os.listdir("images")))
+        d["urls"].append("http://127.0.0.1:5000/images/" + random.choice(os.listdir("images")))
+        # d["urls"].append("http://192.168.0.102:5000/images/" + random.choice(os.listdir("images")))
     # d = {
     #     "url": "http://127.0.0.1:5000/images/" + random.choice(os.listdir("images"))
     # }
