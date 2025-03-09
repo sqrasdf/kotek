@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import "./App.css";
 import { CatImage } from "./components/CatImage.tsx";
 
+const API_URL: string = "http://localhost:5000";
+
 function App() {
   const [cats, setCats] = useState<string[]>([]);
   const loaderRef = useRef(null);
@@ -39,7 +41,8 @@ function App() {
     // const res_json = await fetch("http://127.0.0.1:5000/images/json/10").then(
     const res_json = await fetch(
       // "http://192.168.0.102:5000/images/json/10"
-      "http://localhost:5000/images/json/10"
+      // "http://localhost:5000/images/json/10"
+      API_URL + "/images/json/10"
     ).then((res) => res.json());
     // console.log(res_json);
     setCats((prevCats) => [...prevCats, ...res_json.urls]);
